@@ -26,5 +26,5 @@ for who_dict_key in who_data.who_infant_df_dict.keys():
         plot = Plot(df=child_data_df,
                     df_column=who_dict_key,
                     who_data_df=who_data.who_infant_df_dict[who_dict_key][who_df_key])
-        plot.create(x_limit=x_limit, x_tick_interval=x_tick_interval)
+        plot.create(title=who_df_key.replace('_', ' ').title(), x_limit=x_limit, x_tick_interval=x_tick_interval)
         plot.save(plot_file_name=plot_name, folder=config.PLOTS_FOLDER)

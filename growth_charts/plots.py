@@ -18,7 +18,7 @@ class Plot(object):
         self.x_labels_dict = {'age': 'age [months]',
                               'length': 'length [cm]'}
 
-    def create(self, x_limit, x_tick_interval):
+    def create(self, title, x_limit, x_tick_interval):
         # Plot style
         plt.xkcd()
 
@@ -46,8 +46,9 @@ class Plot(object):
         self.child_df[self.child_df_column].plot(ax=ax, style='--bo', lw=2)
 
         plt.grid(True)
-        plt.xlabel(self.x_labels_dict[self.child_df.index.name])
-        plt.ylabel(self.y_labels_dict[self.child_df_column])
+        plt.title(title)
+        plt.xlabel(self.x_labels_dict[self.child_df.index.name].replace('_', ' '))
+        plt.ylabel(self.y_labels_dict[self.child_df_column].replace('_', ' '))
         plt.ylim([min_y - 1, max_y + 1])
         plt.xlim([self.data_df.index.min(), x_limit])
         plt.xticks(np.arange(self.data_df.index.min(), x_limit, x_tick_interval))
