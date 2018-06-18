@@ -1,8 +1,6 @@
-import os
 import pandas as pd
 import numpy as np
 import datetime as dt
-from dateutil.relativedelta import relativedelta
 
 from growth_charts import config
 
@@ -26,7 +24,7 @@ class ChildData(object):
 
     def read_child_data(self):
 
-        self.df = pd.read_csv(os.path.join(config.DATA_FOLDER, config.CHILD_DATA_FILE),
+        self.df = pd.read_csv(config.CHILD_DATA_FILE,
                               parse_dates=['date'],
                               infer_datetime_format=True)
 
