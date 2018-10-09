@@ -16,11 +16,11 @@ for who_dict_key in who_data.who_infant_df_dict.keys():
     for who_df_key in who_data.who_infant_df_dict[who_dict_key].keys():
         if who_df_key == 'infant_weight_by_length':
             child_data_df = child_data.wt_by_lt_df
-            x_limit = 60.5
-            x_tick_interval = 1
+            x_limit = 80.5
+            x_tick_interval = 3
         else:
             child_data_df = child_data.df
-            x_limit = 3.5
+            x_limit = 5.5
             x_tick_interval = 0.5
         plot_name = who_df_key
         plot = Plot(df=child_data_df,
