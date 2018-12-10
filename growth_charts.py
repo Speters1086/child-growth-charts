@@ -20,7 +20,7 @@ for who_dict_key in who_data.who_infant_df_dict.keys():
             x_tick_interval = 3
         else:
             child_data_df = child_data.df
-            x_limit = 5.5
+            x_limit = 7.5
             x_tick_interval = 0.5
         plot_name = who_df_key
         plot = Plot(df=child_data_df,
