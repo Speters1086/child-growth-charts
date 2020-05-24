@@ -1,0 +1,7 @@
+name: child_growth_charts
+
+dependencies:
+  - python >= 3.7.*
+  - jupyterlab
+  - matplotlib
+  - pandas
