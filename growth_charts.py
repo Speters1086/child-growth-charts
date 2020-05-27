@@ -26,5 +26,8 @@ for child in children:
             child_data_df = child_data.df
 
         plot = Plot(child_data_df=child_data_df, growth_chart=growth_chart, source=growth_data.source)
-        plot.create(chart_name=plot_name)
-        plot.save(plot_file_name=plot_name, folder=config.PLOTS_FOLDER)
+        if plot.no_child_data:
+            continue
+        else:
+            plot.create(chart_name=plot_name)
+            plot.save(plot_file_name=plot_name, folder=config.PLOTS_FOLDER)

@@ -11,21 +11,26 @@ class Plot(object):
 
         self.child_df_column = growth_chart['column']
 
-        self.growth_chart_df = growth_chart['df']
-
-        if source == 'cdc':
-            self.x_limit = round(max(self.child_df.index) * 2) / 2 + 1
+        if len(self.child_df[self.child_df_column]) == 0:
+            self.no_child_data = True
         else:
-            self.x_limit = int(max(self.child_df.index)) + 1
+            self.no_child_data = False
 
-        self.fig = plt.figure(figsize=(8, 8))
+            self.growth_chart_df = growth_chart['df']
 
-        self.y_labels_dict = {'weight': 'weight [kg]',
-                              'length': 'length [cm]',
-                              'head_circumference': 'head_circumference [cm]'}
-        self.x_labels_dict = {'age': 'age [months]',
-                              'age_days': 'age [days]',
-                              'length': 'length [cm]'}
+            if source == 'cdc':
+                self.x_limit = round(max(self.child_df.index) * 2) / 2 + 1
+            else:
+                self.x_limit = int(max(self.child_df.index)) + 1
+
+            self.fig = plt.figure(figsize=(8, 8))
+
+            self.y_labels_dict = {'weight': 'weight [kg]',
+                                  'length': 'length [cm]',
+                                  'head_circumference': 'head_circumference [cm]'}
+            self.x_labels_dict = {'age': 'age [months]',
+                                  'age_days': 'age [days]',
+                                  'length': 'length [cm]'}
 
     def create(self, chart_name):
         title = chart_name.replace('_', ' ').title()
